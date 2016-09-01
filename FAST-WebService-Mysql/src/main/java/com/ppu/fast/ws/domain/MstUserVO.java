@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mb_mst_user")
+@Table(name = "mc_mst_user")
 public class MstUserVO extends BaseTable implements Serializable{
 
 	/**

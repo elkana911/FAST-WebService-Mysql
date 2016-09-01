@@ -13,7 +13,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import com.ppu.fast.ws.common.JsonDateTimeSerializer;
 
 @Entity
-@Table(name = "mb_sec_users")
+@Table(name = "mc_sec_users")
 public class MstSecUserVO extends BaseTable implements Serializable{
 
 	
@@ -64,9 +64,10 @@ public class MstSecUserVO extends BaseTable implements Serializable{
 	
 	@Column(length = 5, name = "BUSS_UNIT")
 	private String bussUnit;
-	
-	@Column(length = 30, name = "PHONE_SN")
-	private String phoneSN;
+
+	// hanya ada di mb_sec_user
+//	@Column(length = 30, name = "PHONE_SN")
+//	private String phoneSN;
 		
 	public MstSecUserVO() {
 //		setId(java.util.UUID.randomUUID().toString());
@@ -176,7 +177,7 @@ public class MstSecUserVO extends BaseTable implements Serializable{
 	public void setBussUnit(String bussUnit) {
 		this.bussUnit = bussUnit;
 	}
-
+/*
 	public String getPhoneSN() {
 		return phoneSN;
 	}
@@ -184,6 +185,6 @@ public class MstSecUserVO extends BaseTable implements Serializable{
 	public void setPhoneSN(String phoneSN) {
 		this.phoneSN = phoneSN;
 	}
-
+*/
 	
 }
