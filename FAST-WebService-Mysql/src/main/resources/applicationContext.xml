@@ -38,19 +38,11 @@
 <!--  	dont forget to register any VO -->
     <property name="annotatedClasses">
 	<list>
-<!-- 		<value>com.ppu.anagog.ws.domain.Employee</value> -->
-<!-- 		<value>com.ppu.anagog.ws.domain.Department</value> -->
-<!-- 		<value>com.ppu.anagog.ws.domain.FlightDetailsVO</value> -->
-<!-- 		<value>com.ppu.anagog.ws.domain.EmployeeExpense</value> -->
-
-<!-- 			<value>com.ppu.fast.ws.domain.MstPosStatusVO</value> -->
-<!-- 			<value>com.ppu.fast.ws.domain.PositionVO</value> -->
 			<value>com.ppu.fast.ws.domain.MstSecUserVO</value>
 			<value>com.ppu.fast.ws.domain.MstUserVO</value>
 			<value>com.ppu.fast.ws.domain.TrxLDVDetails</value>
 			<value>com.ppu.fast.ws.domain.TrxLDVHeader</value>
-			
-<!-- 			<value>com.ppu.fast.ws.domain.MstParkingMapVO</value> -->
+			<value>com.ppu.fast.ws.domain.TrxCollectAddr</value>
 	</list>
     </property>
  </bean>

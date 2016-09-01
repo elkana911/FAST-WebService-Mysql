@@ -3,6 +3,7 @@ package com.ppu.fast.ws.pojo;
 import java.io.Serializable;
 import java.util.List;
 
+import com.ppu.fast.ws.domain.TrxCollectAddr;
 import com.ppu.fast.ws.domain.TrxLDVDetails;
 import com.ppu.fast.ws.domain.TrxLDVHeader;
 
@@ -14,6 +15,7 @@ public class LKPData implements Serializable {
 	
 	private TrxLDVHeader header;
 	private List<TrxLDVDetails> details;
+	private List<TrxCollectAddr> address;
 	
 	public LKPData() {
 	}
@@ -33,6 +35,13 @@ public class LKPData implements Serializable {
 	public void setDetails(List<TrxLDVDetails> details) {
 		this.details = details;
 	}
-	
+
+	public List<TrxCollectAddr> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<TrxCollectAddr> address) {
+		this.address = address;
+	}
 	
 }

@@ -1,5 +1,6 @@
 package com.ppu.fast.ws.DAO.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ppu.fast.ws.DAO.IFastDao;
 import com.ppu.fast.ws.domain.MstSecUserVO;
+import com.ppu.fast.ws.domain.TrxCollectAddr;
 import com.ppu.fast.ws.domain.TrxLDVDetails;
 import com.ppu.fast.ws.domain.TrxLDVHeader;
 import com.ppu.fast.ws.pojo.LKPData;
@@ -155,6 +157,19 @@ public class FastDaoImpl extends BasicHibernate implements IFastDao {
 			List details = c.list();
 			
 			data.setDetails(details);
+			
+			List<TrxCollectAddr> address = new ArrayList<TrxCollectAddr>();
+			
+			for (Object dtl : details) {
+				Criteria c3 = getSession().createCriteria(TrxCollectAddr.class);
+				c3.add(Restrictions.eq("contractNo", ((TrxLDVDetails)dtl).getContractNo()));
+				
+				List _list = c3.list();
+					
+				address.addAll(_list);
+			}
+			
+			data.setAddress(address);
 		}
 		
 		return data;

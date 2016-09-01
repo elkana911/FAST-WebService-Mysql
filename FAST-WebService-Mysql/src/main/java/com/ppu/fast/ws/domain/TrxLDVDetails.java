@@ -32,13 +32,13 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 	@Column(length = 25, name = "PERIOD")
 	private String period;
 	
-	@Column(length = 25, name = "CONTRACT_NO")
+	@Column(length = 30, name = "CONTRACT_NO")
 	private String contractNo;
 	
-	@Column(length = 25, name = "CUST_NO")
+	@Column(length = 20, name = "CUST_NO")
 	private String custNo;
 	
-	@Column(length = 25, name = "CUST_NAME")
+	@Column(length = 60, name = "CUST_NAME")
 	private String custName;
 	
 	@Column(name = "OVD_INST_NO")
@@ -90,10 +90,16 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 	private String workStatus;
 
 	@Column(name = "VISIT_SEQ")
-	private BigDecimal visitSeq;
+	private Long visitSeq;
 
 	@Column(name = "PRNC_OTS")
 	private BigDecimal principalOutstanding;
+	
+	@Column(length = 50, name = "OCCUPATION")
+	private String occupation;
+	
+	@Column(length = 50, name = "SUB_OCCUPATION")
+	private String subOccupation;
 	
 	@JsonSerialize(using = JsonDateTimeSerializer.class)
 	@Column(name = "STARTED_TIMESTAMP")
@@ -267,11 +273,11 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 		this.workStatus = workStatus;
 	}
 
-	public BigDecimal getVisitSeq() {
+	public Long getVisitSeq() {
 		return visitSeq;
 	}
 
-	public void setVisitSeq(BigDecimal visitSeq) {
+	public void setVisitSeq(Long visitSeq) {
 		this.visitSeq = visitSeq;
 	}
 
@@ -290,7 +296,22 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 	public void setStartedTimestamp(Date startedTimestamp) {
 		this.startedTimestamp = startedTimestamp;
 	}
-	
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	public String getSubOccupation() {
+		return subOccupation;
+	}
+
+	public void setSubOccupation(String subOccupation) {
+		this.subOccupation = subOccupation;
+	}
 	
 
 }
