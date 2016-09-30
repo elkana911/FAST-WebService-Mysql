@@ -3,26 +3,30 @@ package com.ppu.fast.ws.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "mc_trn_collect_addr")
-public class TrxCollectAddr extends BaseTable implements Serializable{
+public class TrnCollectAddr extends BaseTable implements Serializable{
+
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8353746612241608572L;
 
+	/*
 	@Id
-	@Column(length = 20, name = "CONTRACT_NO")
-	private String contractNo;
-
+	@Column(name = "SEQ_NO")
+	private Long seqNo;
+	
 	@Embedded
-	private SeqNo seq;
+	private ContractId contract;
+	*/
+	@EmbeddedId
+	private TrnCollectAddrPK pk;
 	
 	@Column(length = 135, name = "COLLEC_ADDR")
 	private String collAddr;
@@ -277,30 +281,13 @@ public class TrxCollectAddr extends BaseTable implements Serializable{
 	public void setCollNickName(String collNickName) {
 		this.collNickName = collNickName;
 	}
-/*
-	public String getContractNo() {
-		return contractNo;
+
+	public TrnCollectAddrPK getPk() {
+		return pk;
 	}
 
-	public void setContractNo(String contractNo) {
-		this.contractNo = contractNo;
-	}
-*/
-
-	public String getContractNo() {
-		return contractNo;
-	}
-
-	public void setContractNo(String contractNo) {
-		this.contractNo = contractNo;
-	}
-
-	public SeqNo getSeq() {
-		return seq;
-	}
-
-	public void setSeq(SeqNo seq) {
-		this.seq = seq;
+	public void setPk(TrnCollectAddrPK pk) {
+		this.pk = pk;
 	}
 
 }

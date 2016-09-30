@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "mc_mst_user")
 public class MstUserVO extends BaseTable implements Serializable{
-
 	/**
 	 * 
 	 */
@@ -23,6 +22,9 @@ public class MstUserVO extends BaseTable implements Serializable{
 	@Column(length = 5, name = "BRANCH_ID")
 	private String branchId;
 	
+	@Column(length = 100, name = "BRANCH_NAME")
+	private String branchName;
+	
 	@Column(length = 35, name = "EMAIL_ADDR")
 	private String emailAddr;
 	
@@ -31,6 +33,21 @@ public class MstUserVO extends BaseTable implements Serializable{
 
 	@Column(length = 1, name = "EMAIL_STATUS")
 	private String emailStatus;
+	
+	@Column(length = 80, name = "JABATAN")
+	private String jabatan;
+	
+	@Column(length = 20, name = "NIK")
+	private String nik;
+	
+	@Column(length = 200, name = "ALAMAT")
+	private String alamat;
+	
+	@Column(length = 20, name = "PHONE_NO")
+	private String phoneNo;
+	
+	@Column(length = 3, name = "COLLECTOR_TYPE")
+	private String collectorType;
 	
 	public MstUserVO() {
 //		setId(java.util.UUID.randomUUID().toString());
@@ -51,6 +68,14 @@ public class MstUserVO extends BaseTable implements Serializable{
 
 	public void setBranchId(String branchId) {
 		this.branchId = branchId;
+	}
+	
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
 
 	public String getEmailAddr() {
@@ -77,5 +102,44 @@ public class MstUserVO extends BaseTable implements Serializable{
 		this.emailStatus = emailStatus;
 	}
 
+	public String getJabatan() {
+		return jabatan;
+	}
+
+	public void setJabatan(String jabatan) {
+		this.jabatan = jabatan;
+	}
+
+	public String getNik() {
+		return nik;
+	}
+
+	public void setNik(String nik) {
+		this.nik = nik;
+	}
+
+	public String getAlamat() {
+		return alamat;
+	}
+
+	public void setAlamat(String alamat) {
+		this.alamat = alamat;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getCollectorType() {
+		return collectorType;
+	}
+
+	public void setCollectorType(String collectorType) {
+		this.collectorType = collectorType;
+	}
 
 }

@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.ppu.fast.ws.pojo.LKPData;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "position")
+@XmlRootElement(name = "lkp")
 @XmlType(name = "", propOrder = {"ip", "error", "data"})
 public class ResponseGetLKP {
 

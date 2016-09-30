@@ -1,14 +1,12 @@
 package com.ppu.fast.ws.service.response;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.ppu.fast.ws.domain.MstSecUserVO;
+import com.ppu.fast.ws.pojo.UserData;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "position")
@@ -16,7 +14,7 @@ import com.ppu.fast.ws.domain.MstSecUserVO;
 public class ResponseGetUsers {
 
 	@XmlElement(name = "data", required = true)
-	private List<MstSecUserVO> data;
+	private UserData data;
 
 	@XmlElement(name = "error", required = true)
 	private ErrorResponse error;
@@ -40,11 +38,11 @@ public class ResponseGetUsers {
 		this.ip = ip;
 	}
 
-	public List<MstSecUserVO> getData() {
+	public UserData getData() {
 		return data;
 	}
 
-	public void setData(List<MstSecUserVO> data) {
+	public void setData(UserData data) {
 		this.data = data;
 	}
 	

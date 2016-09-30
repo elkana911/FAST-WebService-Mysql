@@ -15,7 +15,7 @@ import com.ppu.fast.ws.common.JsonDateTimeSerializer;
 
 @Entity
 @Table(name = "mc_trn_ldv_hdrs")
-public class TrxLDVHeader extends BaseTable implements Serializable{
+public class TrnLDVHeader extends BaseTable implements Serializable{
 
 	/**
 	 * 
@@ -35,12 +35,6 @@ public class TrxLDVHeader extends BaseTable implements Serializable{
 	
 	@Column(length = 20, name = "COLL_CODE")
 	private String collCode;
-	
-	@Column(length = 20, name = "SPV_CODE")
-	private String spvCode;
-	
-	@Column(length = 10, name = "TYPE")
-	private String type;
 	
 	@Column(name = "UNIT_TOTAL")
 	private BigDecimal unitTotal;
@@ -63,12 +57,6 @@ public class TrxLDVHeader extends BaseTable implements Serializable{
 	@Column(name = "AC_TOTAL")
 	private BigDecimal acTotal;
 
-	@Column(name = "MAX_ENTRY_DAYS")
-	private BigDecimal maxEntryDays;
-
-	@Column(length = 30, name = "COY_CODE")
-	private String coyCode;
-
 	@Column(length = 5, name = "WORK_FLAG")
 	private String workFlag;
 
@@ -80,6 +68,23 @@ public class TrxLDVHeader extends BaseTable implements Serializable{
 	@Column(name = "STARTED_TIMESTAMP")
 	private Date startedTimestamp;
 
+	@Column(length = 5, name = "CLOSE_BATCH")
+	private String closeBatch;
+
+	@Column(length = 1, name = "FLAG_TO_EMRAFIN")
+	private String flagToEmrafin;
+	
+	@JsonSerialize(using = JsonDateTimeSerializer.class)
+	@Column(name = "DATE_TO_EMRAFIN")
+	private Date dateToEmrafin;
+	
+	@Column(length = 1, name = "FLAG_DONE")
+	private String flagDone;
+	
+	@JsonSerialize(using = JsonDateTimeSerializer.class)
+	@Column(name = "DATE_DONE")
+	private Date dateDone;
+	
 	public String getLdvNo() {
 		return ldvNo;
 	}
@@ -110,22 +115,6 @@ public class TrxLDVHeader extends BaseTable implements Serializable{
 
 	public void setCollCode(String collCode) {
 		this.collCode = collCode;
-	}
-
-	public String getSpvCode() {
-		return spvCode;
-	}
-
-	public void setSpvCode(String spvCode) {
-		this.spvCode = spvCode;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public BigDecimal getUnitTotal() {
@@ -184,20 +173,12 @@ public class TrxLDVHeader extends BaseTable implements Serializable{
 		this.acTotal = acTotal;
 	}
 
-	public BigDecimal getMaxEntryDays() {
-		return maxEntryDays;
+	public String getCloseBatch() {
+		return closeBatch;
 	}
 
-	public void setMaxEntryDays(BigDecimal maxEntryDays) {
-		this.maxEntryDays = maxEntryDays;
-	}
-
-	public String getCoyCode() {
-		return coyCode;
-	}
-
-	public void setCoyCode(String coyCode) {
-		this.coyCode = coyCode;
+	public void setCloseBatch(String closeBatch) {
+		this.closeBatch = closeBatch;
 	}
 
 	public String getWorkFlag() {
@@ -224,5 +205,36 @@ public class TrxLDVHeader extends BaseTable implements Serializable{
 		this.startedTimestamp = startedTimestamp;
 	}
 
+	public String getFlagToEmrafin() {
+		return flagToEmrafin;
+	}
+
+	public void setFlagToEmrafin(String flagToEmrafin) {
+		this.flagToEmrafin = flagToEmrafin;
+	}
+
+	public Date getDateToEmrafin() {
+		return dateToEmrafin;
+	}
+
+	public void setDateToEmrafin(Date dateToEmrafin) {
+		this.dateToEmrafin = dateToEmrafin;
+	}
+
+	public String getFlagDone() {
+		return flagDone;
+	}
+
+	public void setFlagDone(String flagDone) {
+		this.flagDone = flagDone;
+	}
+
+	public Date getDateDone() {
+		return dateDone;
+	}
+
+	public void setDateDone(Date dateDone) {
+		this.dateDone = dateDone;
+	}
 
 }

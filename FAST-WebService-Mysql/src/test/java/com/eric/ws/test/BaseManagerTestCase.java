@@ -14,8 +14,7 @@ import com.ppu.fast.ws.util.ConvertUtil;
 
 
 @ContextConfiguration(locations = {
-        "classpath:/applicationContext.xml", 
-        "classpath*:/**/applicationContext.xml"
+        "classpath:/applicationContext.xml"
 })
 public abstract class BaseManagerTestCase extends AbstractTransactionalJUnit4SpringContextTests {
 

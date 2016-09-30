@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "hello")
+@XmlRootElement(name = "register")
 @XmlType(name = "", propOrder = {"ip", "error", "data"})
 public class RegisterResponse {
 

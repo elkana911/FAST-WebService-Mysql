@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -15,19 +15,15 @@ import com.ppu.fast.ws.common.JsonDateTimeSerializer;
 
 @Entity
 @Table(name = "mc_trn_ldv_dtls")
-public class TrxLDVDetails extends BaseTable implements Serializable{
+public class TrnLDVDetails extends BaseTable implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@Column(length = 25, name = "LDV_NO")
-	private String ldvNo;
-	
-	@Id
-	@Column(name = "SEQ_NO")
-	private Long seqNo;
+
+	@EmbeddedId
+	private TrnLDVDetailsPK pk;
 
 	@Column(length = 25, name = "PERIOD")
 	private String period;
@@ -82,15 +78,8 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 	@Column(length = 10, name = "LDV_FLAG")
 	private String ldvFlag;
 
-	@JsonSerialize(using = JsonDateTimeSerializer.class)
-	@Column(name = "PROMISE_DATE")
-	private Date promiseDate;
-
 	@Column(length = 5, name = "WORK_STATUS")
 	private String workStatus;
-
-	@Column(name = "VISIT_SEQ")
-	private Long visitSeq;
 
 	@Column(name = "PRNC_OTS")
 	private BigDecimal principalOutstanding;
@@ -101,24 +90,50 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 	@Column(length = 50, name = "SUB_OCCUPATION")
 	private String subOccupation;
 	
+	@Column(length = 20, name = "PAL_NO")
+	private String palNo;
+	
 	@JsonSerialize(using = JsonDateTimeSerializer.class)
 	@Column(name = "STARTED_TIMESTAMP")
 	private Date startedTimestamp;
 
-	public String getLdvNo() {
-		return ldvNo;
+	@Column(length = 1, name = "FLAG_TO_EMRAFIN")
+	private String flagToEmrafin;
+	
+	@JsonSerialize(using = JsonDateTimeSerializer.class)
+	@Column(name = "DATE_TO_EMRAFIN")
+	private Date dateToEmrafin;
+	
+	@Column(length = 1, name = "FLAG_DONE")
+	private String flagDone;
+	
+	@JsonSerialize(using = JsonDateTimeSerializer.class)
+	@Column(name = "DATE_DONE")
+	private Date dateDone;
+
+	@Column(name = "MONTH_INST")
+	private BigDecimal monthInst;
+
+	@Column(name = "DAYS_INTR_AMBC")
+	private BigDecimal daysIntrAmbc;
+	
+	@Column(name = "COLLECTION_FEE")
+	private BigDecimal collectionFee;
+	
+	@JsonSerialize(using = JsonDateTimeSerializer.class)
+	@Column(name = "LAST_PAID_DATE")
+	private Date lastPaidDate;
+	
+	@Column(name = "DPD")
+	private Long dpd;
+	
+	
+	public TrnLDVDetailsPK getPk() {
+		return pk;
 	}
 
-	public void setLdvNo(String ldvNo) {
-		this.ldvNo = ldvNo;
-	}
-
-	public Long getSeqNo() {
-		return seqNo;
-	}
-
-	public void setSeqNo(Long seqNo) {
-		this.seqNo = seqNo;
+	public void setPk(TrnLDVDetailsPK pk) {
+		this.pk = pk;
 	}
 
 	public String getPeriod() {
@@ -257,28 +272,12 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 		this.ldvFlag = ldvFlag;
 	}
 
-	public Date getPromiseDate() {
-		return promiseDate;
-	}
-
-	public void setPromiseDate(Date promiseDate) {
-		this.promiseDate = promiseDate;
-	}
-
 	public String getWorkStatus() {
 		return workStatus;
 	}
 
 	public void setWorkStatus(String workStatus) {
 		this.workStatus = workStatus;
-	}
-
-	public Long getVisitSeq() {
-		return visitSeq;
-	}
-
-	public void setVisitSeq(Long visitSeq) {
-		this.visitSeq = visitSeq;
 	}
 
 	public BigDecimal getPrincipalOutstanding() {
@@ -305,6 +304,14 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 		this.occupation = occupation;
 	}
 
+	public String getPalNo() {
+		return palNo;
+	}
+
+	public void setPalNo(String palNo) {
+		this.palNo = palNo;
+	}
+
 	public String getSubOccupation() {
 		return subOccupation;
 	}
@@ -312,6 +319,78 @@ public class TrxLDVDetails extends BaseTable implements Serializable{
 	public void setSubOccupation(String subOccupation) {
 		this.subOccupation = subOccupation;
 	}
-	
 
+	public String getFlagToEmrafin() {
+		return flagToEmrafin;
+	}
+
+	public void setFlagToEmrafin(String flagToEmrafin) {
+		this.flagToEmrafin = flagToEmrafin;
+	}
+
+	public Date getDateToEmrafin() {
+		return dateToEmrafin;
+	}
+
+	public void setDateToEmrafin(Date dateToEmrafin) {
+		this.dateToEmrafin = dateToEmrafin;
+	}
+
+	public String getFlagDone() {
+		return flagDone;
+	}
+
+	public void setFlagDone(String flagDone) {
+		this.flagDone = flagDone;
+	}
+
+	public Date getDateDone() {
+		return dateDone;
+	}
+
+	public void setDateDone(Date dateDone) {
+		this.dateDone = dateDone;
+	}
+
+	public BigDecimal getMonthInst() {
+		return monthInst;
+	}
+
+	public void setMonthInst(BigDecimal monthInst) {
+		this.monthInst = monthInst;
+	}
+
+	public BigDecimal getDaysIntrAmbc() {
+		return daysIntrAmbc;
+	}
+
+	public void setDaysIntrAmbc(BigDecimal daysIntrAmbc) {
+		this.daysIntrAmbc = daysIntrAmbc;
+	}
+
+	public BigDecimal getCollectionFee() {
+		return collectionFee;
+	}
+
+	public void setCollectionFee(BigDecimal collectionFee) {
+		this.collectionFee = collectionFee;
+	}
+
+	public Date getLastPaidDate() {
+		return lastPaidDate;
+	}
+
+	public void setLastPaidDate(Date lastPaidDate) {
+		this.lastPaidDate = lastPaidDate;
+	}
+
+	public Long getDpd() {
+		return dpd;
+	}
+
+	public void setDpd(Long dpd) {
+		this.dpd = dpd;
+	}
+
+	
 }

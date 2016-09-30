@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
-import com.ppu.fast.ws.domain.MstSecUserVO;
+import com.ppu.fast.ws.pojo.UserData;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "hello")
@@ -14,7 +14,7 @@ import com.ppu.fast.ws.domain.MstSecUserVO;
 public class LoginResponse {
 
 	@XmlElement(name = "data", required = true)
-	private MstSecUserVO data;
+	private UserData data;
 
 	@XmlElement(name = "error")
 	private ErrorResponse error;
@@ -38,11 +38,11 @@ public class LoginResponse {
 		this.ip = ip;
 	}
 
-	public MstSecUserVO getData() {
+	public UserData getData() {
 		return data;
 	}
 
-	public void setData(MstSecUserVO data) {
+	public void setData(UserData data) {
 		this.data = data;
 	}
 	
